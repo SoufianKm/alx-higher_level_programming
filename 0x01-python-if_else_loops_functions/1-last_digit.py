@@ -3,11 +3,11 @@ import random
 number = random.randint(-10000, 10000)
 last_digit = abs(number) % 10
 if number < 0:
-    last_digit = -last_digit 
+    last_digit = -last_digit
 if last_digit > 5:
     stat = "greater than 5"
 elif last_digit < 6 and not(last_digit == 0):
     stat = "less than 6 and not 0"
 elif last_digit == 0:
     stat = "0"
-print("Last digit of {} is {} and is {}".format(number, last_digit, stat))
+print("Last digit of {} is {} and is {}".format(number, last_digit, stat), end="")
