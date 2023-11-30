@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    """does addng, substraction, multiplication, division Maths, and prints the result"""
+    """does adding, substraction, multiplication
+    division Maths of 10 and 5, and prints the result"""
     from calculator_1 import add, sub, mul, div
-    
+
     a = 10
     b = 5
 
