@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    """does + - * / Maths, and prints the result"""
+    """does add, sub, mul, div Maths, and prints the result"""
     from calculator_1 import add, sub, mul, div
     a = 10
     b = 5
