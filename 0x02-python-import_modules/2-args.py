@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     """prints the number of and the list of its arguments."""
     import sys
-    length = length(sys.argv) - 1
+    length = len(sys.argv) - 1
     if length == 0:
         print("{} arguments.".format(length))
     elif length == 1:
