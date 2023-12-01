@@ -9,4 +9,4 @@ if __name__ == "__main__":
     operators = ['+', '-', '*', '/']
     maths = [add(a, b), sub(a, b), mul(a, b), div(a, b)]
     for i in range(len(operators)):
-        print("{} {} {} = {}".format(a, b, operators[i], maths[i]))
+        print("{} {} {} = {}".format(a, operators[i], b, maths[i]))
