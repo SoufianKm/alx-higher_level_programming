@@ -9,9 +9,10 @@ def no_c(my_string):
     Return:
         new string.
     """
-    tmp_list = list(my_string)
-    for c in tmp_list:
-        if c in 'cC':
-            tmp_list.remove(c)
-
-    return "".join(tmp_list)
+    if my_string:
+        tmp_list = list(my_string)
+        for c in tmp_list:
+            if c in 'cC':
+                tmp_list.remove(c)
+        return "".join(tmp_list)
+    return my_string
