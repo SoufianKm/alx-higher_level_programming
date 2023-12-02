@@ -9,13 +9,12 @@ def print_matrix_integer(matrix=[[]]):
     Retrun:
         0 always.
     """
-    length = 0
     for col in matrix:
+        length = 1
         for nbr in col:
-            length += 1
             if length < len(col):
-                print(nbr, end=" ")
+                print("{:d}".format(nbr), end=" ")
             else:
-                print(nbr, end="")
-        print("\n", end="")
-        length = 0
+                print("{:d}".format(nbr), end="")
+            length += 1
+        print()
