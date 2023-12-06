@@ -9,7 +9,13 @@ def best_score(a_dictionary):
     Return:
         new dictionary
     """
+    the_best = None
     if a_dictionary:
-        return list(sorted(a_dictionary))[-1]
+        the_best = list(a_dictionary)[0]
+        for key in a_dictionary:
+            biggest_int = a_dictionary[the_best]
+            if a_dictionary[key] > biggest_int:
+                biggest_int = a_dictionary[key]
+                the_best = key
 
-    return None
+    return the_best
