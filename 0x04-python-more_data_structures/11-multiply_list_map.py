@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 def multiply_list_map(my_list=[], number=0):
     """returns a list with all values multiplied
     by a number without using any loops.
@@ -11,5 +10,4 @@ def multiply_list_map(my_list=[], number=0):
     Return:
         new list
     """
-    new_list = list(map(lambda nbr: nbr * number, my_list))
-    return new_list
+    return list(map(lambda nbr: nbr * number, my_list))
