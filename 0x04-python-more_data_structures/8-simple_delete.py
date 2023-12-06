@@ -5,7 +5,7 @@ def simple_delete(a_dictionary, key=""):
 
     Args:
         a_dictionary: dictionary given
-        key: argument of dictionary
+        key: string argument
 
     Return:
         new dictionary
