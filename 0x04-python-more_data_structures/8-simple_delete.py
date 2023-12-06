@@ -10,7 +10,12 @@ def simple_delete(a_dictionary, key=""):
     Return:
         new dictionary
     """
-    if a_dictionary.get(key) is not None:
-        del a_dictionary[key]
+    if key in a_dictionary:
+        if a_dictionary[key] is not None:
+            new_dictionary = {}
+            for a_key in a_dictionary:
+                if key != a_key: 
+                    new_dictionary[a_key] = a_dictionary[a_key]
+            return new_dictionary
 
     return a_dictionary
