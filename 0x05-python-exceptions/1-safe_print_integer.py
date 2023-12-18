@@ -13,6 +13,4 @@ def safe_print_integer(value):
         print("{:d}".format(int(value)), end="\n")
         return True
     except:
-        pass
-
-    return False
+        return False
