@@ -12,8 +12,9 @@ def safe_print_integer(value):
     res = False
     try:
         int_val = int(value)
-        print("{:d}".format(int_val), end="\n")
+        print("{:d}".format(int_val))
         res = True
     except ValueError:
         res = False
+    print("", end="\n")
     return res
