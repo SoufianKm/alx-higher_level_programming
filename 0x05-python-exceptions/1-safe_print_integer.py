@@ -9,8 +9,11 @@ def safe_print_integer(value):
     Return:
         True if value has been correctly printed, Otherwise False.
     """
+    res = False
     try:
-        print("{:d}".format(int(value)), end="\n")
-        return True
+        int_val = int(value)
+        print("{:d}".format(int_val), end="\n")
+        res = True
     except ValueError:
-        return False
+        res = False
+    return res
