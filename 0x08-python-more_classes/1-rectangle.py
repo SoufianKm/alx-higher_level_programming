@@ -7,10 +7,10 @@ This is a module for a class Rectangle
 class Rectangle:
     """class of rectangle"""
 
-    def __init__(self, width=0, heigh=0):
+    def __init__(self, width=0, height=0):
         """initialise class"""
         self.width = width
-        self.heigh = heigh
+        self.height = height
 
     @property
     def width(self):
