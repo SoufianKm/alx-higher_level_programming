@@ -7,6 +7,8 @@ This is a module for a class Rectangle
 class Rectangle:
     """class of rectangle"""
 
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """initialise class"""
         self.width = width
