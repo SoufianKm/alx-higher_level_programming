@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a base model class."""
 import json
+import os.path
 
 class Base:
     """Represent the base model.
@@ -39,3 +40,24 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Writes the JSON string representation of list_objs to a file.
+
+        Args:
+            list_objs (list): instances who inherits of Base - example:
+            list of Rectangle or list of Square instances.
+        """
+        filename = "{}.json".format(cls.__name__)
+        list_dic = []
+
+        if not list_objs:
+            pass
+        else:
+            for i in range(len(list_objs)):
+                list_dic.append(list_objs[i].to_dictionary())
+
+        lists = cls.to_json_string(list_dic)
+
+        with open(filename, 'w') as f:
+            f.write(lists)

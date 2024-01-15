@@ -93,3 +93,43 @@ were given"
         self.assertTrue(type(json_string), str)
         d = json.loads(json_string)
         self.assertEqual(d, [dict1, dict2])
+
+    def test_save_to_file_1(self):
+        """ Test save_to_file_method with empty_file """
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", mode="r") as myFile:
+            self.assertEqual([], json.load(myFile))
+
+    def test_save_to_file_2(self):
+        """ Test save_to_file method with None as file """
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", mode="r") as myFile:
+            self.assertEqual([], json.load(myFile))
+
+    def test_save_to_file_4(self):
+        """ Test save_to_file method """
+        import os
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 105)
+
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        try:
+            os.remove("Rectangle.json")
+        except Exception:
+            pass
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r2])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 52)
+
