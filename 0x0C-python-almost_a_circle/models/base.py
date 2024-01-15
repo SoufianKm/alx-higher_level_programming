@@ -75,3 +75,33 @@ class Base:
         if json_string is None or len(json_string) == 0:
             return []
         return(json.loads(json_string))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all attributes already set.
+
+        Args:
+            dictionary (dict): double pointer to a dictionary.
+            cls (any): class.
+
+        To use the update method to assign all attributes, you must,
+        create a “dummy” instance before:
+        Create a Rectangle or Square instance with “dummy” mandatory,
+        attributes (width, height, size, etc.),
+        Call update instance method to this “dummy” instance to apply your,
+        real values.
+        You must use the method def update(self, *args, **kwargs).
+        **dictionary must be used as **kwargs of the method update.
+        You are not allowed to use eval.
+
+        Returns:
+            list: an instance with all attributes already set.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+
+        # print("cls type --> {}".format(type(cls)))
+        return(dummy)

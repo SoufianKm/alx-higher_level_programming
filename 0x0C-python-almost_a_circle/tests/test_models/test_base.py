@@ -133,3 +133,11 @@ were given"
         with open("Rectangle.json", "r") as file:
             self.assertEqual(len(file.read()), 52)
 
+    def test_create(self):
+        """ Test create method """
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 is r2)
+        self.assertFalse(r1 == r2)
