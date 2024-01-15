@@ -205,3 +205,18 @@ and 'height'"
             Rectangle.__str__()
         s = "__str__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
+
+    def test_update_args(self):
+        """ Test the udpate method with *args """
+        r = Rectangle(1, 1, 0, 0, 1)
+        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/1")
+        r.update(89)
+        self.assertEqual(str(r), "[Rectangle] (89) 0/0 - 1/1")
+        r.update(89, 2)
+        self.assertEqual(str(r), "[Rectangle] (89) 0/0 - 2/1")
+        r.update(89, 2, 3)
+        self.assertEqual(str(r), "[Rectangle] (89) 0/0 - 2/3")
+        r.update(89, 2, 3, 4)
+        self.assertEqual(str(r), "[Rectangle] (89) 4/0 - 2/3")
+        r.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
