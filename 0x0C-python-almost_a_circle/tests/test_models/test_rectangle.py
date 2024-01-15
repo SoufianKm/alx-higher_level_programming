@@ -101,3 +101,29 @@ and 'height'"
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(7, 6, 5, -5)
             Rectangle(4, 2, 1, 0)
+
+    def test_area_1(self):
+        """ Test area """
+        r1 = Rectangle(3, 2)
+        r2 = Rectangle(2, 10)
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r1.area(), 2 * 3)
+        self.assertEqual(r2.area(), 2 * 10)
+        self.assertEqual(r3.area(), 8 * 7)
+
+    def test_area_2(self):
+        """ Checking the return value of area method """
+        r1 = Rectangle(2, 2)
+        self.assertEqual(r1.area(), 4)
+        r1.width = 5
+        self.assertEqual(r1.area(), 10)
+        r1.height = 5
+        self.assertEqual(r1.area(), 25)
+
+    def test_area_no_args(self):
+        """ Test area method with no arguments """
+        r = Rectangle(5, 6)
+        with self.assertRaises(TypeError) as e:
+            Rectangle.area()
+        s = "area() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
