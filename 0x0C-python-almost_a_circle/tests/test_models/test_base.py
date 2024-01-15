@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """Defines a class BaseModelTest"""
-
-
 import json
 import unittest
 import os
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestBaseMethods(unittest.TestCase):
@@ -74,3 +73,23 @@ class TestBaseMethods(unittest.TestCase):
 were given"
         self.assertEqual(str(e.exception), msg)
 
+    def test_to_json_string(self):
+        """ Test to_json_string method """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(11, 1, 3, 4)
+        dict1 = r1.to_dictionary()
+        dict2 = r2.to_dictionary()
+        json_dict1 = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
+        json_dict2 = [{"x": 3, "width": 11, "id": 1, "height": 1, "y": 4}]
+        json_string = Base.to_json_string([dict1, dict2])
+        self.assertNotEqual(dict1, json_dict1)
+        self.assertNotEqual(dict2, json_dict2)
+        self.assertEqual(type(dict1), dict)
+        self.assertEqual(type(json_string), str)
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        self.assertTrue(type(Base.to_json_string(None)) is str)
+        self.assertTrue(type(Base.to_json_string("[]")) is str)
+        self.assertTrue(type(json_string), str)
+        d = json.loads(json_string)
+        self.assertEqual(d, [dict1, dict2])
