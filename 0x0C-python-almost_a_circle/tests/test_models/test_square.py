@@ -75,3 +75,55 @@ were given"
         """ Test Square is a Rectangle instance """
         s1 = Square(1)
         self.assertEqual(True, isinstance(s1, Rectangle))
+
+    def test_str(self):
+        """ Test __str__ return value """
+        s1 = Square(3, 1, 3)
+        result = "[Square] (1) 1/3 - 3\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(s1)
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_str_no_args(self):
+        """ Tests __str__ method with no arguments """
+        r = Square(5, 2)
+        with self.assertRaises(TypeError) as e:
+            Square.__str__()
+        s = "__str__() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
+
+    def test_area(self):
+        """ Test area method """
+        s1 = Square(4)
+        self.assertEqual(s1.area(), 16)
+
+    def test_area_2(self):
+        """ Test area method after modifying size """
+        r1 = Square(4)
+        self.assertEqual(r1.area(), 16)
+        r1.size = 9
+        self.assertEqual(r1.area(), 81)
+
+    def test_area_no_args(self):
+        """ Test area method with no arguments"""
+        r = Square(5)
+        with self.assertRaises(TypeError) as e:
+            Square.area()
+        s = "area() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
+
+    def test_basic_display(self):
+        """ Test display without x and y """
+        s1 = Square(6)
+        result = "######\n######\n######\n######\n######\n######\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            s1.display()
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_display_no_args(self):
+        """ Test display method with no arguments """
+        r = Square(9)
+        with self.assertRaises(TypeError) as e:
+            Square.display()
+        s = "display() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
