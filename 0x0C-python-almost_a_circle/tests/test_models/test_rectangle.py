@@ -186,3 +186,22 @@ and 'height'"
         with patch('sys.stdout', new=StringIO()) as str_out:
             r1.display()
             self.assertEqual(str_out.getvalue(), result)
+
+    def test_str(self):
+        """ Test __str__ return value """
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r2 = Rectangle(5, 5, 1)
+        result = "[Rectangle] (12) 2/1 - 4/6\n"
+        result2 = "[Rectangle] (1) 1/0 - 5/5"
+        self.assertEqual(r2.__str__(), result2)
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(r1)
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_str_no_args(self):
+        """ Test __str__ return value with no arguments """
+        r = Rectangle(5, 2)
+        with self.assertRaises(TypeError) as e:
+            Rectangle.__str__()
+        s = "__str__() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
