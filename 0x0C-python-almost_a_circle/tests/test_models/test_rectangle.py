@@ -233,3 +233,16 @@ and 'height'"
         self.assertEqual(str(r), "[Rectangle] (89) 5/3 - 4/10")
         r.update(x=6, height=7, y=8, width=9)
         self.assertEqual(str(r), "[Rectangle] (89) 6/8 - 9/7")
+
+    def test_to_dictonary_1(self):
+        """test to see if to_dictionary method is working"""
+        r1 = Rectangle(10, 2, 1, 9)
+        d1 = r1.to_dictionary()
+        j1 = {'id': 1, 'width': 10, 'height': 2, 'x': 1, 'y': 9}
+        r2 = Rectangle(1, 1)
+        d2 = r2.to_dictionary()
+        j2 = {'x': 0, 'y': 0, 'id': 2, 'height': 1, 'width': 1}
+        self.assertEqual(d1, j1)
+        self.assertEqual(d2, j2)
+        self.assertEqual(type(d1), dict)
+        self.assertEqual(type(d2), dict)
