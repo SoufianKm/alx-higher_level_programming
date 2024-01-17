@@ -95,7 +95,6 @@ and 'height'"
             Rectangle(6, -5)
             Rectangle(2, 0)
             Rectangle(1, 0)
-
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(5, 4, -2)
             Rectangle(13, 2, 0)
