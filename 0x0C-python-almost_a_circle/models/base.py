@@ -3,6 +3,7 @@
 import json
 import os.path
 
+
 class Base:
     """Represent the base model.
 
