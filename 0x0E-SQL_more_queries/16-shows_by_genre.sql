@@ -5,8 +5,8 @@
 -- Results must be sorted in ascending order by the show title and genre name
 -- You can use only one SELECT statement
 -- The database name will be passed as an argument of the mysql command
-SELECT s.title, g.name
-FROM tv_shows s
-LEFT JOIN tv_show_genres m ON s.id = m.show_id
-LEFT JOIN tv_genres g ON m.genre_id = g.id
-ORDER BY s.title ASC;
+SELECT ts.title, tg.name
+FROM tv_shows ts
+LEFT JOIN tv_show_genres tsg ON ts.id = tsg.show_id
+LEFT JOIN tv_genres tg ON tsg.genre_id = tg.id
+ORDER BY ts.title;
