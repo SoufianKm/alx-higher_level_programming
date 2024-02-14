@@ -13,6 +13,4 @@ FROM `cities`
 WHERE state_id = (
 	SELECT `id`
 	FROM states
-	WHERE name like 'California')
-ORDER BY id;
---
+	WHERE name like 'California');
