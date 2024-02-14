@@ -7,9 +7,7 @@
 -- You can use only one SELECT statement
 -- The database name will be passed as an argument of the mysql command
 SELECT ts.title, tsg.genre_id
-FROM tv_shows ts
-RIGHT JOIN tv_show_genres tsg
-ON ts.id = tsg.show_id
-LEFT JOIN tv_genres tg
-ON tsg.genre_id = tg.id
+FROM tv_show_genres tsg
+JOIN tv_shows ts
+ON tsg.show_id = ts.id
 ORDER BY ts.title;
