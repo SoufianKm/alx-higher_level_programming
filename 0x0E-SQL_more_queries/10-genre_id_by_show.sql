@@ -10,4 +10,4 @@ SELECT ts.title, tsg.genre_id
 FROM tv_show_genres tsg
 JOIN tv_shows ts
 ON tsg.show_id = ts.id
-ORDER BY ts.title;
+ORDER BY ts.title, tsg.genre_id;
