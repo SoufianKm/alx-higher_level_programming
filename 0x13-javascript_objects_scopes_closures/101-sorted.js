@@ -16,4 +16,4 @@ for (const key in dictInput) {
     }
   }
 }
-console.log(outDict);
+console.log(newDict);
