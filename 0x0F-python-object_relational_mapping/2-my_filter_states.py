@@ -2,7 +2,7 @@
 """
 This script takes in an argument and
 displays displays all values in the
-states table of `hbtn_0e_0_usa` where 
+states table of `hbtn_0e_0_usa` where
 `name` matches the argument
 """
 
