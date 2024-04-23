@@ -17,8 +17,7 @@ request.get(url, (error, response, body) => {
   }
 
   const content = JSON.parse(body);
-  const characters = content.characters;
-  
+  const characters = content.characters; 
   for (const character of characters) {
     request.get(character, (error, response, body) => {
       if (error) {
