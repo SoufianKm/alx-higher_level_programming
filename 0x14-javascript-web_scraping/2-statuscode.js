@@ -7,7 +7,9 @@
 const request = require('request');
 const url = process.argv[2];
 request.get(url, function (error, response) {
-  if (error)
+  if (error) {
     console.log(error);
-  console.log('code:' + ' ' + response.statusCode);
+  } else {
+    console.log('code:' + ' ' + response.statusCode);
+  }
 });
